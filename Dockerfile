@@ -1,6 +1,10 @@
-FROM lessthanjake328/quickstart
-CMD echo "Hello world! This is my first Docker image."
-RUN ls
+FROM golang:1.8
+
+WORKDIR /go/src/app
 COPY . .
-RUN pwd
-RUN ls
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+EXPOSE 8080
+CMD ["app"]
