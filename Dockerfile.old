@@ -1,0 +1,5 @@
+FROM lessthanjake328/quickstart
+CMD echo "Hello world! This is my first Docker image."
+COPY . .
+CMD ls
+CMD pwd
